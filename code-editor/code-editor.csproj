@@ -9,12 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\exit_icon.png" />
+    <None Remove="Images\maximize_icon.png" />
+    <None Remove="Images\minimize_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
     <Folder Include="MVVM\Model\" />
     <Folder Include="MVVM\ViewModel\" />
     <Folder Include="MVVM\View\" />
     <Folder Include="Theme\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\exit_icon.png" />
+    <Resource Include="Images\maximize_icon.png" />
+    <Resource Include="Images\minimize_icon.png" />
   </ItemGroup>
 
 </Project>

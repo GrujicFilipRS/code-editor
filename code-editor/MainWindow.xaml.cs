@@ -23,6 +23,15 @@ namespace code_editor
         public MainWindow()
         {
             InitializeComponent();
+            DraggableArea.MouseDown += DraggableArea_MouseDown;
+        }
+
+        private void DraggableArea_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == System.Windows.Input.MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
 
         private void ResizeButton_Click(object sender, RoutedEventArgs e)

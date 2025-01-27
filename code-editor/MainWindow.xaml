@@ -50,9 +50,18 @@
                     <ColumnDefinition Width="45"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Style="{StaticResource NavBTN}" Grid.Column="3" Click="MinimizeButton_Click">-</Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="4" Click="ResizeButton_Click">O</Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="5" Click="ExitButton_Click">X</Button>
+                <Grid Grid.Column="2" x:Name="DraggableArea" Background="Transparent"/>
+                <Button Style="{StaticResource NavBTN}" Grid.Column="3" Click="MinimizeButton_Click">
+                    <Button.Content>
+                        <Image Source="Images/minimize_icon.png" Stretch="Fill"/>
+                    </Button.Content>
+                </Button>
+                <Button Style="{StaticResource NavBTN}" Grid.Column="4" Click="ResizeButton_Click">
+                    <Image Source="Images/maximize_icon.png" />
+                </Button>
+                <Button Style="{StaticResource NavBTN}" Grid.Column="5" Click="ExitButton_Click">
+                    <Image Source="Images/exit_icon.png" />
+                </Button>
             </Grid>
         </Grid>
     </Border>

@@ -50,9 +50,9 @@
                     <ColumnDefinition Width="45"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Style="{StaticResource NavBTN}" Grid.Column="3">-</Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="4">O</Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="5">X</Button>
+                <Button Style="{StaticResource NavBTN}" Grid.Column="3" Click="MinimizeButton_Click">-</Button>
+                <Button Style="{StaticResource NavBTN}" Grid.Column="4" Click="ResizeButton_Click">O</Button>
+                <Button Style="{StaticResource NavBTN}" Grid.Column="5" Click="ExitButton_Click">X</Button>
             </Grid>
         </Grid>
     </Border>

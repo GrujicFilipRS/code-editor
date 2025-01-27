@@ -24,5 +24,28 @@ namespace code_editor
         {
             InitializeComponent();
         }
+
+        private void ResizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            switch (GetWindow(this).WindowState)
+            {
+                case WindowState.Normal:
+                    GetWindow(this).WindowState = WindowState.Maximized;
+                    break;
+                case WindowState.Maximized:
+                    GetWindow(this).WindowState = WindowState.Normal;
+                    break;
+            }
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            GetWindow(this).WindowState = WindowState.Minimized;
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            GetWindow(this).Close();
+        }
     }
 }

@@ -61,7 +61,7 @@
                     <ColumnDefinition Width="45"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Style="{StaticResource NavBTN} " Grid.Column="1">
+                <Button Style="{StaticResource NavBTN}" Grid.Column="1">
                     <Button.Content>
                         <TextBlock Style="{StaticResource font-regular}">File</TextBlock>
                     </Button.Content>

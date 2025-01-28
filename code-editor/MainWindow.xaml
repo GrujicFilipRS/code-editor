@@ -37,11 +37,13 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
-                <RowDefinition/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="250"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45"/>
                     <ColumnDefinition Width="45"/>
                     <ColumnDefinition Width="45"/>
                     <ColumnDefinition Width="*"/>
@@ -50,16 +52,19 @@
                     <ColumnDefinition Width="45"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="2" x:Name="DraggableArea" Background="Transparent"/>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="3" Click="MinimizeButton_Click">
+                <Grid Grid.Column="2"  x:Name="DraggableArea" Background="Transparent">
+                    <TextBlock>Opened file title.py</TextBlock>
+                </Grid>
+
+                <Button Style="{StaticResource NavBTN}" Grid.Column="4" Click="MinimizeButton_Click">
                     <Button.Content>
                         <Image Source="Images/minimize_icon.png" Stretch="Fill"/>
                     </Button.Content>
                 </Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="4" Click="ResizeButton_Click">
+                <Button Style="{StaticResource NavBTN}" Grid.Column="5" Click="ResizeButton_Click">
                     <Image Source="Images/maximize_icon.png" />
                 </Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="5" Click="ExitButton_Click">
+                <Button Style="{StaticResource NavBTN}" Grid.Column="6" Click="ExitButton_Click">
                     <Image Source="Images/exit_icon.png" />
                 </Button>
             </Grid>

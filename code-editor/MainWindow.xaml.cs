@@ -23,6 +23,8 @@ namespace code_editor
         public MainWindow()
         {
             InitializeComponent();
+            MaxHeight = SystemParameters.WorkArea.Height + SystemParameters.WindowCaptionHeight;
+
             DraggableArea.MouseDown += DraggableArea_MouseDown;
         }
 
@@ -36,15 +38,7 @@ namespace code_editor
 
         private void ResizeButton_Click(object sender, RoutedEventArgs e)
         {
-            switch (GetWindow(this).WindowState)
-            {
-                case WindowState.Normal:
-                    GetWindow(this).WindowState = WindowState.Maximized;
-                    break;
-                case WindowState.Maximized:
-                    GetWindow(this).WindowState = WindowState.Normal;
-                    break;
-            }
+            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         }
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)

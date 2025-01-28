@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:code_editor"
         mc:Ignorable="d"
-        Title="Code Editor" Height="810" Width="1440"
+        Title="Code Editor" Height="700" Width="1200"
         WindowState="Maximized" AllowsTransparency="False"
         WindowStyle="None" Background="Transparent">
     <Window.Resources>
@@ -52,7 +52,7 @@
                     <ColumnDefinition Width="45"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="2"  x:Name="DraggableArea" Background="Transparent">
+                <Grid Grid.Column="3"  x:Name="DraggableArea" Background="Transparent">
                     <TextBlock>Opened file title.py</TextBlock>
                 </Grid>
 

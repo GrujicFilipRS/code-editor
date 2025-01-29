@@ -9,6 +9,7 @@
         WindowState="Maximized" AllowsTransparency="False"
         WindowStyle="None" Background="Transparent"
         ResizeMode="CanResize">
+
     <Window.Resources>
         <FontFamily x:Key="jaldi-b">Fonts/Jaldi-Bold.ttf #Jaldi Bold</FontFamily>
         <FontFamily x:Key="jaldi-r">Fonts/Jaldi-Regular.ttf #Jaldi</FontFamily>
@@ -31,7 +32,6 @@
                                               VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <!-- Hover Effect -->
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#3b3b3b"/>
                             </Trigger>
@@ -47,48 +47,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="200"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Background="#292929">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="45"/>
-                    <ColumnDefinition Width="45"/>
-                </Grid.ColumnDefinitions>
-
-                <Button Style="{StaticResource NavBTN}" Grid.Column="1">
-                    <Button.Content>
-                        <TextBlock Style="{StaticResource font-regular}">File</TextBlock>
-                    </Button.Content>
-                </Button>
-
-                <Button Style="{StaticResource NavBTN}" Grid.Column="2">
-                    <Button.Content>
-                        <TextBlock Style="{StaticResource font-regular}">Edit</TextBlock>
-                    </Button.Content>
-                </Button>
-
-                <Grid Grid.Column="3"  x:Name="DraggableArea" Background="Transparent">
-                    <TextBlock Foreground="White" TextAlignment="Center" VerticalAlignment="Center" Style="{StaticResource font-regular}">Untitled</TextBlock>
-                </Grid>
-
-                <Button Style="{StaticResource NavBTN}" Grid.Column="4" Click="MinimizeButton_Click">
-                    <Button.Content>
-                        <Image Source="Images/minimize_icon.png" Stretch="Fill"/>
-                    </Button.Content>
-                </Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="5" Click="ResizeButton_Click">
-                    <Image Source="Images/maximize_icon.png" />
-                </Button>
-                <Button Style="{StaticResource NavBTN}" Grid.Column="6" Click="ExitButton_Click">
-                    <Image Source="Images/exit_icon.png" />
-                </Button>
-            </Grid>
+            <local:WinBar Grid.Row="0"/>
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -97,18 +60,18 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0" Background="#242424">
+                <local:DirectoryViewer Grid.Column="0"/>
 
-                </Grid>
-                
                 <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" Background="#222222" />
+
+                <local:CodeWindow Grid.Column="2"/>
+            </Grid>
+            
+            <GridSplitter Grid.Row="2" Height="3" HorizontalAlignment="Stretch" 
                   VerticalAlignment="Stretch" Background="#242424" />
 
-            </Grid>
-
-            <Grid Grid.Row="2" Background="#292929">
-
-            </Grid>
+            <local:ConsoleWindow Grid.Row="3"/>
         </Grid>
     </Border>
 </Window>

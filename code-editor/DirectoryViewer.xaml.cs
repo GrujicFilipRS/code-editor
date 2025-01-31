@@ -4,24 +4,38 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace code_editor
 {
     public partial class DirectoryViewer : UserControl
     {
-        public string location = "C:\\Users\\fgrujic\\Documents\\rad\\moje\\code-editor";
+        public string location = "D:\\Projects\\code-editor";
         Folder currentDirectory;
 
         public DirectoryViewer()
         {
             InitializeComponent();
             currentDirectory = new Folder("", location);
+
+            // Making RadioButtons for all the files found inside
             string[] text = LoopThroughFolders(currentDirectory);
-            foreach (string item in text)
+            var indexedText = text.Select((name, index) => (index, name));
+
+            foreach (var (index, item) in indexedText)
             {
                 RowDefinition rowDef = new RowDefinition();
                 rowDef.Height = new GridLength(20, GridUnitType.Pixel);
                 directoryGrid.RowDefinitions.Add(rowDef);
+                RadioButton radioButton = new RadioButton
+                {
+                    Content = item,
+                    GroupName = "FileSelected",
+                    Foreground = Brushes.White
+                };
+
+                Grid.SetRow(radioButton, index);
+                directoryGrid.Children.Add(radioButton);
             }
         }
 
@@ -33,6 +47,9 @@ namespace code_editor
             foreach(Folder folder2 in foldersToCircle)
             {
                 ret.Add(folder2.name);
+
+                if (!folder2.opened) continue;
+
                 List<string> returned = LoopThroughFolders(folder2).ToList();
                 foreach(string _ in returned)
                 {

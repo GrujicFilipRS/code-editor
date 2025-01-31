@@ -9,6 +9,7 @@ namespace code_editor
 {
     public class Folder
     {
+        public bool opened;
         public string name;
         public string location;
         public List<Folder> folders;
@@ -18,6 +19,7 @@ namespace code_editor
         {
             name = name_;
             location = location_;
+            opened = false;
             folders = GetFolders();
             files = GetFiles();
         }

@@ -19,7 +19,7 @@ namespace code_editor
         {
             name = name_;
             location = location_;
-            opened = false;
+            opened = true;
             folders = GetFolders();
             files = GetFiles();
         }

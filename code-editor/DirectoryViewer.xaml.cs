@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -44,14 +45,14 @@ namespace code_editor
             List<string> ret = new List<string>();
             List<Folder> foldersToCircle = folder.folders.ToList();
 
-            foreach(Folder folder2 in foldersToCircle)
+            foreach (Folder folder2 in foldersToCircle)
             {
                 ret.Add(folder2.name);
 
                 if (!folder2.opened) continue;
 
                 List<string> returned = LoopThroughFolders(folder2).ToList();
-                foreach(string _ in returned)
+                foreach (string _ in returned)
                 {
                     ret.Add($"    {_}");
                 }
